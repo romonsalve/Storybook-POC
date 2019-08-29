@@ -1,0 +1,27 @@
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {list: []}
+  }
+
+  addElement(element) {
+    this.setState({list: [...this.state.list, element]})
+  }
+
+  render() {
+    return (
+      <div>
+        <Input
+          labelText="Ingresa una tarea"
+          buttonText="Ingresar"
+          sendTask={(element) => this.addElement(element)}
+        />
+        <List
+          list={this.state.list}
+        />
+      </div>
+    )
+  }
+}
+
+export default App;
